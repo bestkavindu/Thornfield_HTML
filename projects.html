@@ -17,7 +17,7 @@
     <div class="max-w-7xl mx-auto px-6 py-4">
       <div class="flex justify-between items-center">
         <!-- Logo -->
-        <a href="index.html" class="flex items-center space-x-3 group">
+        <a href="/" class="flex items-center space-x-3 group">
           <div
             class="w-12 h-12 bg-gradient-to-br from-green-600 to-green-800 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:scale-105 transition-all duration-300">
             <img src="./images/logo.svg" alt="Thornfield Robotics Logo" class="rounded-xl w-11 h-11">
@@ -32,7 +32,7 @@
 
         <!-- Desktop Menu -->
         <nav class="hidden md:flex items-center justify-center space-x-2 flex-1">
-          <a href="index.html"
+          <a href="/"
             class="relative flex items-center space-x-2 px-5 py-3 text-white font-semibold rounded-lg transition-all duration-300 group hover:text-green-400 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50">
             <svg class="w-4 h-4 transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -139,7 +139,7 @@
       <div id="mobileMenu"
         class="md:hidden mt-4 pb-4 border-t border-gray-700 hidden bg-gray-900/95 backdrop-blur-sm rounded-b-xl shadow-lg">
         <nav class="flex flex-col space-y-1 pt-4 px-4">
-          <a href="index.html"
+          <a href="/"
             class="flex items-center space-x-3 px-4 py-3 text-white font-semibold rounded-lg hover:text-green-400 hover:bg-gray-800 transition-all duration-200 border-l-4 border-transparent hover:border-green-400">
             <svg class="w-5 h-5 transition-colors duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -231,7 +231,7 @@
     <div class="max-w-7xl mx-auto px-6">
       <!-- Breadcrumb -->
       <nav class="flex items-center space-x-2 text-sm text-gray-600 mb-8">
-        <a href="index.html" class="hover:text-green-600 transition-colors duration-200">Home</a>
+        <a href="/" class="hover:text-green-600 transition-colors duration-200">Home</a>
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
         </svg>
@@ -443,6 +443,30 @@
               </div>
             </div>
 
+            <!-- Video Player -->
+            <div class="mb-8">
+              <div class="relative w-full rounded-xl shadow-lg overflow-hidden group">
+                <video 
+                  id="taskPlannerVideo"
+                  class="w-full h-auto"
+                  controls
+                  preload="metadata">
+                  <source src="videos/UNSWTractor.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+                
+                <!-- Custom Play Button Overlay -->
+                <div id="taskPlannerPlayButton" class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 cursor-pointer transition-opacity duration-300 group-hover:bg-opacity-20">
+                  <div class="w-20 h-20 bg-white bg-opacity-90 rounded-full flex items-center justify-center shadow-2xl transform transition-all duration-300 hover:scale-110 hover:bg-opacity-100">
+                    <svg class="w-8 h-8 text-green-600 ml-1" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M8 5v14l11-7z"/>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+              <p class="text-sm text-gray-600 mt-3 text-center">Watch our Task Planner system for autonomous field vehicles</p>
+            </div>
+
             <!-- CTA Buttons -->
             <div class="flex flex-col sm:flex-row gap-3">
               <a href="project-1.html"
@@ -451,15 +475,6 @@
                 <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                 </svg>
-              </a>
-              <a href="project-1.html#video"
-                class="inline-flex items-center px-6 py-3 border-2 border-green-600 text-green-600 font-semibold rounded-full hover:bg-green-600 hover:text-white transform hover:scale-105 transition-all duration-300">
-                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h.01M15 14h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
-                  </path>
-                </svg>
-                Watch Video
               </a>
             </div>
 
@@ -534,6 +549,30 @@
               </div>
             </div>
 
+            <!-- Video Player -->
+            <div class="mb-8">
+              <div class="relative w-full rounded-xl shadow-lg overflow-hidden group">
+                <video 
+                  id="smartSeederVideo"
+                  class="w-full h-auto"
+                  controls
+                  preload="metadata">
+                  <source src="videos/SeederHiRes001.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+                
+                <!-- Custom Play Button Overlay -->
+                <div id="smartSeederPlayButton" class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 cursor-pointer transition-opacity duration-300 group-hover:bg-opacity-20">
+                  <div class="w-20 h-20 bg-white bg-opacity-90 rounded-full flex items-center justify-center shadow-2xl transform transition-all duration-300 hover:scale-110 hover:bg-opacity-100">
+                    <svg class="w-8 h-8 text-green-600 ml-1" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M8 5v14l11-7z"/>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+              <p class="text-sm text-gray-600 mt-3 text-center">Watch our Smart Seeder autonomous seeding system in action</p>
+            </div>
+
             <!-- CTA Buttons -->
             <div class="flex flex-col sm:flex-row gap-3">
               <a href="projects-2.html"
@@ -543,16 +582,8 @@
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                 </svg>
               </a>
-              <a href="projects-2.html#video"
-                class="inline-flex items-center px-6 py-3 border-2 border-green-600 text-green-600 font-semibold rounded-full hover:bg-green-600 hover:text-white transform hover:scale-105 transition-all duration-300">
-                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h.01M15 14h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
-                  </path>
-                </svg>
-                Watch Video
-              </a>
             </div>
+
           </div>
         </div>
 
@@ -697,7 +728,7 @@
           <h4 class="text-lg font-semibold mb-6">Quick Links</h4>
           <ul class="space-y-3">
             <li>
-              <a href="index.html#about"
+              <a href="/#about"
                 class="text-gray-400 hover:text-green-400 transition-colors duration-200 flex items-center space-x-2">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
@@ -824,6 +855,88 @@
           arrow.classList.toggle('rotate-180');
         });
       });
+
+      // Smart Seeder video player functionality
+      const smartSeederVideo = document.getElementById('smartSeederVideo');
+      const smartSeederPlayButton = document.getElementById('smartSeederPlayButton');
+
+      if (smartSeederVideo && smartSeederPlayButton) {
+        // Handle play button click
+        smartSeederPlayButton.addEventListener('click', function() {
+          smartSeederVideo.play();
+          smartSeederPlayButton.style.opacity = '0';
+          setTimeout(() => {
+            smartSeederPlayButton.style.display = 'none';
+          }, 300);
+        });
+
+        // Show overlay when video is paused
+        smartSeederVideo.addEventListener('pause', function() {
+          if (!smartSeederVideo.ended) {
+            smartSeederPlayButton.style.display = 'flex';
+            setTimeout(() => {
+              smartSeederPlayButton.style.opacity = '1';
+            }, 50);
+          }
+        });
+
+        // Hide overlay when video starts playing
+        smartSeederVideo.addEventListener('play', function() {
+          smartSeederPlayButton.style.opacity = '0';
+          setTimeout(() => {
+            smartSeederPlayButton.style.display = 'none';
+          }, 300);
+        });
+
+        // Show overlay when video ends
+        smartSeederVideo.addEventListener('ended', function() {
+          smartSeederPlayButton.style.display = 'flex';
+          setTimeout(() => {
+            smartSeederPlayButton.style.opacity = '1';
+          }, 50);
+        });
+      }
+
+      // Task Planner video player functionality
+      const taskPlannerVideo = document.getElementById('taskPlannerVideo');
+      const taskPlannerPlayButton = document.getElementById('taskPlannerPlayButton');
+
+      if (taskPlannerVideo && taskPlannerPlayButton) {
+        // Handle play button click
+        taskPlannerPlayButton.addEventListener('click', function() {
+          taskPlannerVideo.play();
+          taskPlannerPlayButton.style.opacity = '0';
+          setTimeout(() => {
+            taskPlannerPlayButton.style.display = 'none';
+          }, 300);
+        });
+
+        // Show overlay when video is paused
+        taskPlannerVideo.addEventListener('pause', function() {
+          if (!taskPlannerVideo.ended) {
+            taskPlannerPlayButton.style.display = 'flex';
+            setTimeout(() => {
+              taskPlannerPlayButton.style.opacity = '1';
+            }, 50);
+          }
+        });
+
+        // Hide overlay when video starts playing
+        taskPlannerVideo.addEventListener('play', function() {
+          taskPlannerPlayButton.style.opacity = '0';
+          setTimeout(() => {
+            taskPlannerPlayButton.style.display = 'none';
+          }, 300);
+        });
+
+        // Show overlay when video ends
+        taskPlannerVideo.addEventListener('ended', function() {
+          taskPlannerPlayButton.style.display = 'flex';
+          setTimeout(() => {
+            taskPlannerPlayButton.style.opacity = '1';
+          }, 50);
+        });
+      }
     });
   </script>
 
