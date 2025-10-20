@@ -559,142 +559,148 @@
   </footer>
 
     <!-- JavaScript -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Mobile Menu Toggle
-            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-            const mobileMenu = document.getElementById('mobileMenu');
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Mobile Menu Toggle
+      const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
 
-            mobileMenuBtn.addEventListener('click', function () {
-                mobileMenu.classList.toggle('hidden');
+      mobileMenuBtn.addEventListener('click', function () {
+        mobileMenu.classList.toggle('hidden');
 
-                // Animate hamburger icon
-                const icon = mobileMenuBtn.querySelector('svg');
-                if (mobileMenu.classList.contains('hidden')) {
-                    icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>';
-                } else {
-                    icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>';
-                }
-            });
+        // Animate hamburger icon
+        const icon = mobileMenuBtn.querySelector('svg');
+        if (mobileMenu.classList.contains('hidden')) {
+          icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>';
+        } else {
+          icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>';
+        }
+      });
 
-            // Close mobile menu when clicking outside
-            document.addEventListener('click', function (event) {
-                if (!mobileMenuBtn.contains(event.target) && !mobileMenu.contains(event.target)) {
-                    mobileMenu.classList.add('hidden');
-                    const icon = mobileMenuBtn.querySelector('svg');
-                    icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>';
-                }
-            });
+      // Close mobile menu when clicking outside
+      document.addEventListener('click', function (event) {
+        if (!mobileMenuBtn.contains(event.target) && !mobileMenu.contains(event.target)) {
+          mobileMenu.classList.add('hidden');
+          const icon = mobileMenuBtn.querySelector('svg');
+          icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>';
+        }
+      });
 
-            // Navbar scroll effect
-            const header = document.querySelector('header');
-            let lastScrollY = window.scrollY;
+      // Navbar scroll effect
+      const header = document.querySelector('header');
+      let lastScrollY = window.scrollY;
 
-            window.addEventListener('scroll', function () {
-                if (window.scrollY > 100) {
-                    header.classList.add('bg-gray-900/98', 'shadow-xl');
-                    header.classList.remove('bg-gray-900/95');
-                } else {
-                    header.classList.add('bg-gray-900/95');
-                    header.classList.remove('bg-gray-900/98', 'shadow-xl');
-                }
-            });
+      window.addEventListener('scroll', function () {
+        if (window.scrollY > 100) {
+          header.classList.add('bg-gray-900/98', 'shadow-xl');
+          header.classList.remove('bg-gray-900/95');
+        } else {
+          header.classList.add('bg-gray-900/95');
+          header.classList.remove('bg-gray-900/98', 'shadow-xl');
+        }
+      });
 
-            // Slider functionality
-            const slides = document.querySelectorAll('.slide');
-            const dots = document.querySelectorAll('.dot');
-            const prevBtn = document.getElementById('prevBtn');
-            const nextBtn = document.getElementById('nextBtn');
-            let currentSlide = 0;
-            let slideInterval;
 
-            // Show specific slide
-            function showSlide(index) {
-                // Hide all slides
-                slides.forEach(slide => slide.classList.remove('opacity-100'));
-                slides.forEach(slide => slide.classList.add('opacity-0'));
 
-                // Remove active class from all dots
-                dots.forEach(dot => dot.classList.remove('active', 'bg-white'));
-                dots.forEach(dot => dot.classList.add('bg-white/50'));
+      // Mobile dropdown functionality
+      const mobileDropdownBtns = document.querySelectorAll('.mobile-dropdown-btn');
 
-                // Show current slide and activate dot
-                slides[index].classList.remove('opacity-0');
-                slides[index].classList.add('opacity-100');
-                dots[index].classList.remove('bg-white/50');
-                dots[index].classList.add('active', 'bg-white');
+      mobileDropdownBtns.forEach(btn => {
+        btn.addEventListener('click', function (e) {
+          e.preventDefault();
+          const dropdown = this.parentNode;
+          const content = dropdown.querySelector('.mobile-dropdown-content');
+          const arrow = this.querySelector('svg:last-child');
 
-                currentSlide = index;
-            }
-
-            // Next slide
-            function nextSlide() {
-                currentSlide = (currentSlide + 1) % slides.length;
-                showSlide(currentSlide);
-            }
-
-            // Previous slide
-            function prevSlide() {
-                currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-                showSlide(currentSlide);
-            }
-
-            // Auto-play functionality
-            function startAutoPlay() {
-                slideInterval = setInterval(nextSlide, 5000); // Change slide every 5 seconds
-            }
-
-            function stopAutoPlay() {
-                clearInterval(slideInterval);
-            }
-
-            // Event listeners
-            nextBtn.addEventListener('click', () => {
-                stopAutoPlay();
-                nextSlide();
-                startAutoPlay();
-            });
-
-            prevBtn.addEventListener('click', () => {
-                stopAutoPlay();
-                prevSlide();
-                startAutoPlay();
-            });
-
-            // Dot navigation
-            dots.forEach((dot, index) => {
-                dot.addEventListener('click', () => {
-                    stopAutoPlay();
-                    showSlide(index);
-                    startAutoPlay();
-                });
-            });
-            // Pause on hover
-            const slider = document.getElementById('slider');
-            slider.addEventListener('mouseenter', stopAutoPlay);
-            slider.addEventListener('mouseleave', startAutoPlay);
-
-            // Initialize
-            showSlide(0);
-            startAutoPlay();
-
-            // Mobile dropdown functionality
-            const mobileDropdownBtns = document.querySelectorAll('.mobile-dropdown-btn');
-
-            mobileDropdownBtns.forEach(btn => {
-                btn.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const dropdown = this.parentNode;
-                    const content = dropdown.querySelector('.mobile-dropdown-content');
-                    const arrow = this.querySelector('svg:last-child');
-
-                    // Toggle the dropdown
-                    content.classList.toggle('hidden');
-                    arrow.classList.toggle('rotate-180');
-                });
-            });
+          // Toggle the dropdown
+          content.classList.toggle('hidden');
+          arrow.classList.toggle('rotate-180');
         });
-    </script>
+      });
+
+      // Smart Seeder video player functionality
+      const smartSeederVideo = document.getElementById('smartSeederVideo');
+      const smartSeederPlayButton = document.getElementById('smartSeederPlayButton');
+
+      if (smartSeederVideo && smartSeederPlayButton) {
+        // Handle play button click
+        smartSeederPlayButton.addEventListener('click', function () {
+          smartSeederVideo.play();
+          smartSeederPlayButton.style.opacity = '0';
+          setTimeout(() => {
+            smartSeederPlayButton.style.display = 'none';
+          }, 300);
+        });
+
+        // Show overlay when video is paused
+        smartSeederVideo.addEventListener('pause', function () {
+          if (!smartSeederVideo.ended) {
+            smartSeederPlayButton.style.display = 'flex';
+            setTimeout(() => {
+              smartSeederPlayButton.style.opacity = '1';
+            }, 50);
+          }
+        });
+
+        // Hide overlay when video starts playing
+        smartSeederVideo.addEventListener('play', function () {
+          smartSeederPlayButton.style.opacity = '0';
+          setTimeout(() => {
+            smartSeederPlayButton.style.display = 'none';
+          }, 300);
+        });
+
+        // Show overlay when video ends
+        smartSeederVideo.addEventListener('ended', function () {
+          smartSeederPlayButton.style.display = 'flex';
+          setTimeout(() => {
+            smartSeederPlayButton.style.opacity = '1';
+          }, 50);
+        });
+      }
+
+      // Task Planner video player functionality
+      const taskPlannerVideo = document.getElementById('taskPlannerVideo');
+      const taskPlannerPlayButton = document.getElementById('taskPlannerPlayButton');
+
+      if (taskPlannerVideo && taskPlannerPlayButton) {
+        // Handle play button click
+        taskPlannerPlayButton.addEventListener('click', function () {
+          taskPlannerVideo.play();
+          taskPlannerPlayButton.style.opacity = '0';
+          setTimeout(() => {
+            taskPlannerPlayButton.style.display = 'none';
+          }, 300);
+        });
+
+        // Show overlay when video is paused
+        taskPlannerVideo.addEventListener('pause', function () {
+          if (!taskPlannerVideo.ended) {
+            taskPlannerPlayButton.style.display = 'flex';
+            setTimeout(() => {
+              taskPlannerPlayButton.style.opacity = '1';
+            }, 50);
+          }
+        });
+
+        // Hide overlay when video starts playing
+        taskPlannerVideo.addEventListener('play', function () {
+          taskPlannerPlayButton.style.opacity = '0';
+          setTimeout(() => {
+            taskPlannerPlayButton.style.display = 'none';
+          }, 300);
+        });
+
+        // Show overlay when video ends
+        taskPlannerVideo.addEventListener('ended', function () {
+          taskPlannerPlayButton.style.display = 'flex';
+          setTimeout(() => {
+            taskPlannerPlayButton.style.opacity = '1';
+          }, 50);
+        });
+      }
+    });
+  </script>
 
 </body>
 
